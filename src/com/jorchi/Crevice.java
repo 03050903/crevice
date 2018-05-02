@@ -372,9 +372,13 @@ public class Crevice {
 //            array[0] = Math.abs(point2-point1);
 //            array[1] = point1;
 //            array[2] = point2;
-            list.add(0,image2byte(filePath));
+        list.add(0,image2byte(filePath));
+        if(Math.abs(point2-point1) > 0){
             list.add(1,Math.abs(point2-point1));
-            return list;
+        }else {
+            list.add(1,0);
+        }
+        return list;
     }
     public static void drawImage(String filePath,int point1,int point2,int y){
         Mat imgMat= Imgcodecs.imread(filePath);
